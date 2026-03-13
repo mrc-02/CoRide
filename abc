@@ -1,0 +1,12 @@
+# Start Redis
+redis-server
+
+# Start Celery Worker
+celery -A coride worker -l info --pool=solo
+
+# Start Celery Beat (Scheduler)
+celery -A coride beat -l info
+
+# Or both together
+celery -A coride worker -B -l info --pool=solo
+
